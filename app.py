@@ -61,11 +61,11 @@ st.markdown(
 
 # ============ DB CONNECTION ============
 
-POSTGRES_USER = os.getenv("POSTGRES_USER")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-POSTGRES_DB = os.getenv("POSTGRES_DB")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST_OUT")
-POSTGRES_PORT = os.getenv("POSTGRES_PORT_OUT")
+POSTGRES_USER = st.secrets["POSTGRES_USER"]
+POSTGRES_PASSWORD = st.secrets["POSTGRES_PASSWORD"]
+POSTGRES_DB = st.secrets["POSTGRES_DB"]
+POSTGRES_HOST = st.secrets["POSTGRES_HOST_OUT"]
+POSTGRES_PORT = st.secrets["POSTGRES_PORT_OUT"]
 
 DB_URL = (
     f"postgresql+psycopg2://{POSTGRES_USER}:"
@@ -1368,3 +1368,4 @@ else:
             st.plotly_chart(fig_perf, use_container_width=True)
         else:
             st.info("Belum ada data sesi pada rentang waktu ini.")
+
